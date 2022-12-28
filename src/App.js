@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+import {Navbar, NavbarBrand} from 'reactstrap';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Muhammad Tahir Memon</h1>
+    <div>
+      <Navbar dark color="primary">
+        <div className="container">
+          <NavbarBrand href="/">Muhammad Tahir Memon</NavbarBrand>  
+        </div>
+      </Navbar>
     </div>
   );
 }
