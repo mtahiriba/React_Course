@@ -21,7 +21,7 @@ export const DISHES =
             rating: 4,
             comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
             author: "Paul McVites",
-            date: "2014-09-05T17:57:28.556094Z"
+            date: "2019-09-05T17:57:28.556094Z"
             },
             {
             id: 2,
