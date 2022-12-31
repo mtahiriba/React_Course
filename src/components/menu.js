@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
-import DishDetails from './dishDetails';
+import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 export default class menu extends Component {
   
     constructor(props) {
       super(props)
     
       this.state = {
-         selectedDishe: null,
+         selectedDish: null,
       }
     }
 
     onDishSelect(dish){
-        this.setState({selectedDishe: dish})
+        this.setState({selectedDish: dish})
     }
 
     render() {
@@ -20,11 +20,13 @@ export default class menu extends Component {
         const menu = this.props.dishes.map((dish) => {
             return (
                 <div  className="col-md-5 col-sm-12 m-1">
-                    <Card key={dish.id} onClick={() => this.onDishSelect(dish)}>
-                        <CardImg width="100%" src={dish.image} alt={dish.name} />
-                        <CardImgOverlay>
-                            <CardTitle>{dish.name}</CardTitle>
-                        </CardImgOverlay>
+                    <Card>
+                        <Link to={`/menu/${dish.id}`}>
+                            <CardImg width="100%" src={dish.image} alt={dish.name} />
+                            <CardImgOverlay>
+                                <CardTitle>{dish.name}</CardTitle>
+                            </CardImgOverlay>
+                        </Link>
                     </Card>
                 </div>
             );
@@ -32,10 +34,22 @@ export default class menu extends Component {
     
     return (
       <div className='container'>
+        <div className="row">
+            <div className="col-12">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Menu</BreadcrumbItem>
+                </Breadcrumb>
+            </div>
+            
+            <div className="col-12">
+                <h3>Menu</h3>
+                <hr />
+            </div>                
+        </div>
         <div className='row'>
             {menu}
         </div>
-        <DishDetails dish={this.state.selectedDishe}/>        
       </div>
       
     )
