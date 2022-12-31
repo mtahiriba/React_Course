@@ -31,7 +31,7 @@ export default class menu extends Component {
         });
     
     return (
-      <div>
+      <div className='container'>
         <div className='row'>
             {menu}
         </div>

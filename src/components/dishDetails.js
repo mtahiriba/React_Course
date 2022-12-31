@@ -43,8 +43,8 @@ export default class dishDetails extends Component {
                         {dish.comments.map((comment) => {
                             return(
                                 <div key={comment.id}>
-                                    <p><h4>{comment.comment}</h4></p>
-                                    <p><h4>-- {comment.author}, {comment.date}</h4></p>
+                                    <p><h5>{comment.comment}</h5></p>
+                                    <p><h5>-- {comment.author}, {comment.date}</h5></p>
                                     <br/>
                                 </div>
                             )
