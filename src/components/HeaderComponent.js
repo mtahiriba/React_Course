@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
+  Button, ModalHeader, ModalBody,
+  Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import {Modal} from 'react-bootstrap'
+
+
+
 
 export default class HeaderComponent extends Component {
   
@@ -8,9 +14,12 @@ export default class HeaderComponent extends Component {
     super(props)
   
     this.state = {
-       isNavOpen: false
+       isNavOpen: false,
+       isModalOpen: false
     }
     this.toToggleNav = this.toToggleNav.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   toToggleNav = () => {
@@ -19,13 +28,27 @@ export default class HeaderComponent extends Component {
     })
   }
 
+  toggleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen
+    });
+  }
+
+  handleLogin(event) {
+    this.toggleModal();
+    alert("Username: " + this.username.value + " Password: " + this.password.value
+        + " Remember: " + this.remember.checked);
+    event.preventDefault();
+
+  }
+
   render() {
     return (
-      <>
+      <React.Fragment>
         <Navbar dark expand="md">
           <div className="container">
             <NavbarToggler onClick={this.toToggleNav} />
-            <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" 
+            <NavbarBrand className="ml-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" 
             alt='Ristorante Con Fusion' /></NavbarBrand>
             
             <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -46,6 +69,11 @@ export default class HeaderComponent extends Component {
                   <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
                 </NavItem>
               </Nav>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <Button outline onClick={this.toggleModal}><span className="fa fa-sign-in fa-lg"></span> Login</Button>
+                </NavItem>
+              </Nav>
             </Collapse>
           </div>
         </Navbar>
@@ -59,7 +87,33 @@ export default class HeaderComponent extends Component {
                </div>
            </div>
        </Jumbotron>
-      </>
+
+        <Modal show={this.state.isModalOpen}>
+        <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+          <ModalBody>
+          <Form onSubmit={this.handleLogin}>
+                <FormGroup>
+                  <Label htmlFor="username">Username</Label>
+                  <Input type="text" id="username" name="username" placeholder="Username"
+                        innerRef={(input) => this.username = input} />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="password">Password</Label>
+                  <Input type="password" id="password" name="password" placeholder="Password"
+                        innerRef={(input) => this.password = input}  />
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="checkbox" name="remember"
+                          innerRef={(input) => this.remember = input}  />
+                    Remember me
+                  </Label>
+                </FormGroup>
+                <Button type="submit" value="submit" color="primary" className="btn-lg btn-block mt-3">Login</Button>
+              </Form>
+          </ModalBody>
+        </Modal>
+      </React.Fragment>
     )
   }
 }
