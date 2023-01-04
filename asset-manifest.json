@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React_Course/static/css/main.d6eb5edf.css",
+    "main.js": "/React_Course/static/js/main.3032e262.js",
+    "static/js/787.54280330.chunk.js": "/React_Course/static/js/787.54280330.chunk.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/React_Course/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/React_Course/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/React_Course/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/bootstrap-icons.woff?": "/React_Course/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/React_Course/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/React_Course/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/React_Course/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "index.html": "/React_Course/index.html",
+    "main.d6eb5edf.css.map": "/React_Course/static/css/main.d6eb5edf.css.map",
+    "main.3032e262.js.map": "/React_Course/static/js/main.3032e262.js.map",
+    "787.54280330.chunk.js.map": "/React_Course/static/js/787.54280330.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6eb5edf.css",
+    "static/js/main.3032e262.js"
+  ]
+}
