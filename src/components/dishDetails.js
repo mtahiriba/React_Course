@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
+import CommentForm from './commentForm';
 
 
 export default class dishDetails extends Component {
@@ -41,16 +42,19 @@ export default class dishDetails extends Component {
                 <div className='col-md-5 col-sm-12 m-1'>
                     <>
                         <h2>Comments</h2>
+                        <br/>    
                         {comments.map((comment) => {
                             return(
                                 <div key={comment.id}>
                                     <p><h5>{comment.comment}</h5></p>
                                     <p><h5>-- {comment.author}, {comment.date}</h5></p>
-                                    <br/>
+                                    
                                 </div>
                             )
                         })}
                     </>
+                    <br/>
+                    <CommentForm/>
                 </div>
                 
             );
