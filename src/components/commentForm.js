@@ -26,8 +26,8 @@ export default class commentForm extends Component {
   }
 
   handleSubmit(values) {
-    console.log('Current State is: ' + JSON.stringify(values));
-    alert('Current State is: ' + JSON.stringify(values));
+    this.toggleModal();
+    this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
 }
   
     render() {
@@ -40,7 +40,7 @@ export default class commentForm extends Component {
                                 <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                                     <FormGroup>
                                         <div md={{size: 3, offset: 1}}>
-                                            <Control.select model=".contactType" name="contactType"
+                                            <Control.select model=".rating" name="rating"
                                                 className="form-control">
                                                 <option>1</option>
                                                 <option>2</option>
@@ -51,10 +51,10 @@ export default class commentForm extends Component {
                                         </div>
                                     </FormGroup>
                                     <FormGroup>
-                                        <Label htmlFor="lastname">Your Name</Label>
+                                        <Label htmlFor="author">Your Name</Label>
                                         
-                                            <Control.text model=".lastname" id="lastname" name="lastname"
-                                                placeholder="Last Name"
+                                            <Control.text model=".author" id="author" name="author"
+                                                placeholder="Name"
                                                 className="form-control"
                                                 validators={{
                                                     required, minLength: minLength(3), maxLength: maxLength(15)
@@ -74,9 +74,9 @@ export default class commentForm extends Component {
                                     </FormGroup>
                                     
                                     <FormGroup >
-                                        <Label htmlFor="message">Comment</Label>
+                                        <Label htmlFor="comment">Comment</Label>
                                         
-                                            <Control.textarea model=".message" id="message" name="message"
+                                            <Control.textarea model=".comment" id="comment" name="comment"
                                                 rows="6"
                                                 className="form-control" />
                                     </FormGroup>

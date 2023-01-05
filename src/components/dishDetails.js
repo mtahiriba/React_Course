@@ -36,7 +36,7 @@ export default class dishDetails extends Component {
         }
     }
 
-    renderComments(dish, comments){
+    renderComments(dish, comments, addComment){
         if(dish != null){
             return(
                 <div className='col-md-5 col-sm-12 m-1'>
@@ -54,7 +54,7 @@ export default class dishDetails extends Component {
                         })}
                     </>
                     <br/>
-                    <CommentForm/>
+                    <CommentForm dishId={dish.id} addComment={addComment}/>
                 </div>
                 
             );
@@ -84,7 +84,7 @@ export default class dishDetails extends Component {
             </div>
             <div className='row'>
                 {this.renderDish(this.props.dish)}
-                {this.renderComments(this.props.dish, this.props.comments)}
+                {this.renderComments(this.props.dish, this.props.comments, this.props.addComment)}
             </div>      
         </div>
       
