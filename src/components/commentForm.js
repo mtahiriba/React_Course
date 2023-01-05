@@ -62,7 +62,7 @@ export default class commentForm extends Component {
                                                 />
                                             <Errors
                                                 className="text-danger"
-                                                model=".lastname"
+                                                model=".author"
                                                 show="touched"
                                                 messages={{
                                                     required: 'Required',
