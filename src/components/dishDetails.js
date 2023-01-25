@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbIte
 import { Link } from 'react-router-dom';
 import CommentForm from './commentForm';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 export default class dishDetails extends Component {
   
@@ -19,7 +20,7 @@ export default class dishDetails extends Component {
             return(
                 <div className='col-md-5 col-sm-12 m-1'>
                     <Card>
-                        <CardImg top src={dish.image} alt={dish.name} />
+                        <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                         <CardBody>
                             <CardTitle><h3>{dish.name}</h3></CardTitle>
                             <CardText>{dish.description}</CardText>
