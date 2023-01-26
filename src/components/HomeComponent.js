@@ -24,6 +24,9 @@ function RenderCard({item, isLoading, errMess}) {
                 transformProps={{
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
+                    {
+                        console.log(item)
+                    }
                 <Card>
                     <CardImg src={baseUrl + item.image} alt={item.name} />
                     <CardBody>
@@ -49,7 +52,7 @@ function HomeComponent(props) {
                   <RenderCard item={props.promotion} isLoading={props.promoLoading} errMess={props.promoErrMess} />
               </div>
               <div className="col-12 col-md m-1">
-                  <RenderCard item={props.leader} />
+                  <RenderCard item={props.leader} isLoading={props.leadersLoading} errMess={props.leadersErrMess}/>
               </div>
           </div>
       </div>
