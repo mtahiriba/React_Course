@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import CommentForm from './commentForm';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 export default class dishDetails extends Component {
   
@@ -19,13 +20,19 @@ export default class dishDetails extends Component {
         if(dish != null){
             return(
                 <div className='col-md-5 col-sm-12 m-1'>
-                    <Card>
-                        <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-                        <CardBody>
-                            <CardTitle><h3>{dish.name}</h3></CardTitle>
-                            <CardText>{dish.description}</CardText>
-                        </CardBody>
-                    </Card>
+                    <FadeTransform
+                        in
+                        transformProps={{
+                            exitTransform: 'scale(0.5) translateY(-50%)'
+                        }}>
+                        <Card>
+                            <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+                            <CardBody>
+                                <CardTitle><h3>{dish.name}</h3></CardTitle>
+                                <CardText>{dish.description}</CardText>
+                            </CardBody>
+                        </Card>
+                    </FadeTransform>
                 </div>
                 
             );
@@ -44,15 +51,19 @@ export default class dishDetails extends Component {
                     <>
                         <h2>Comments</h2>
                         <br/>    
+                        <Stagger in>
                         {comments.map((comment) => {
                             return(
+                                <Fade in>
                                 <div key={comment.id}>
                                     <p><h5>{comment.comment}</h5></p>
                                     <p><h5>-- {comment.author}, {comment.date}</h5></p>
                                     
                                 </div>
+                                </Fade>
                             )
                         })}
+                        </Stagger>
                     </>
                     <br/>
                     <CommentForm dishId={dish.id} postComment={postComment}/>
